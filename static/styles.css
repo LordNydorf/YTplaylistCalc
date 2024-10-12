@@ -1,0 +1,153 @@
+/* styles.css */
+
+/* Base styles for light mode */
+:root {
+    --primary-color: #3498db;
+    --background-color: #f8f9fa;
+    --text-color: #333333;
+    --input-bg: #ffffff;
+    --button-bg: var(--primary-color);
+    --button-text-color: white;
+    --transition-duration: 0.3s;
+}
+
+[data-theme="dark"] {
+    --primary-color: #2980b9;
+    --background-color: #1a1a1a;
+    --text-color: #f1f1f1;
+    --input-bg: #2c2c2c;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    transition: background-color var(--transition-duration), color var(--transition-duration);
+}
+
+.container {
+    text-align: center;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: var(--input-bg);
+    transition: background-color var(--transition-duration);
+}
+
+h1 {
+    margin-bottom: 2rem;
+    font-weight: 700;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input[type="text"] {
+    padding: 0.75rem 1rem;
+    border-radius: 50px;
+    border: 2px solid var(--primary-color);
+    width: 100%;
+    max-width: 400px;
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    outline: none;
+    transition: border-color var(--transition-duration), box-shadow var(--transition-duration);
+}
+
+input[type="text"]:focus {
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.3);
+}
+
+button {
+    background-color: var(--button-bg);
+    color: var(--button-text-color);
+    padding: 0.75rem 2rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: transform var(--transition-duration), box-shadow var(--transition-duration);
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.error {
+    color: var(--error-color);
+    margin-top: 10px;
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* Dark Mode Toggle */
+.dark-mode-toggle {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--input-bg);
+    border: 2px solid var(--text-color);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color var(--transition-duration), transform 0.1s;
+    overflow: hidden;
+}
+
+.dark-mode-toggle:hover {
+    transform: scale(1.1);
+}
+
+.dark-mode-toggle::before {
+    content: '☀️';
+    font-size: 24px;
+    transition: transform var(--transition-duration);
+}
+
+[data-theme="dark"] .dark-mode-toggle::before {
+    content: '🌙';
+    transform: rotate(360deg);
+}
+
+@keyframes gradient {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    opacity: 0.1;
+    z-index: -1;
+}
