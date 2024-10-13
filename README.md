@@ -1,5 +1,8 @@
 # YouTube Playlist Duration Calculator
 
+We all know the struggle—you're cramming for an exam, and there's this massive playlist on YouTube that explains everything you need to know. But there's one problem... you have no idea how long it will take to watch the whole thing. If you're like me and tend to leave studying to the last minute, time becomes a big factor.
+That's why I built this app! You just paste the link to a YouTube playlist, and it spits out the total duration, so you can know exactly how long the playlist is before diving in. Sure, it might enable some of my procrastination tendencies, but hey, it's still super useful!
+
 This is a web application that calculates the total duration of all the videos in a YouTube playlist. The application is built with Python and Flask on the backend, and HTML and CSS on the frontend. It uses the YouTube Data API v3 to fetch video data from the playlist.
 
 ## Features
