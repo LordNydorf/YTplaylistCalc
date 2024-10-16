@@ -3,6 +3,11 @@ import requests
 import isodate
 from datetime import timedelta
 import re
+import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 app = Flask(__name__)
 
@@ -16,7 +21,7 @@ def extract_playlist_id(url):
 
 # Function to fetch video durations from YouTube API with pagination
 def fetch_video_durations(playlist_id):
-    api_key = 'YOUR_API_KEY'  # Replace with your actual YouTube API key
+    api_key = os.getenv('YOUTUBE_API_KEY') # Get API key from environment variables
     base_url = f'https://www.googleapis.com/youtube/v3/playlistItems?part=contentDetails&playlistId={playlist_id}&maxResults=50&key={api_key}'
     
     video_durations = []
