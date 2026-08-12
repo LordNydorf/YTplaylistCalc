@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/1776a7ab-114a-4984-a7a3-9abf32fcc964/deploy-status)](https://app.netlify.com/projects/playpulse-duration/deploys)
+
 # YouTube Playlist Duration Calculator
 
 We all know the struggle—you're cramming for an exam, and there's this massive playlist on YouTube that explains everything you need to know. But there's one problem... you have no idea how long it will take to watch the whole thing. If you're like me and tend to leave studying to the last minute, time becomes a big factor.
