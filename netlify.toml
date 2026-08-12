@@ -1,9 +1,13 @@
 [build]
+  command = "pip install -r requirements.txt"
   publish = "public"
   functions = "netlify/functions"
 
 [build.environment]
   PYTHON_VERSION = "3.11"
+
+[functions]
+  directory = "netlify/functions"
 
 [[redirects]]
   from = "/get_playlist_duration"
