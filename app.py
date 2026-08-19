@@ -278,6 +278,22 @@ def favicon():
 def favicon_svg():
     return app.send_static_file('favicon.svg')
 
+@app.route('/og-image.png')
+def og_image():
+    return app.send_static_file('og-image.png')
+
+@app.route('/robots.txt')
+def robots_txt():
+    return app.send_static_file('robots.txt')
+
+@app.route('/sitemap.xml')
+def sitemap_xml():
+    return app.send_static_file('sitemap.xml')
+
+@app.route('/site.webmanifest')
+def site_webmanifest():
+    return app.send_static_file('site.webmanifest')
+
 @app.route('/get_playlist_duration', methods=['POST'])
 def get_playlist_duration():
     data = request.get_json() or {}

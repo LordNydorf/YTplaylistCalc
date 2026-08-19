@@ -1,73 +1,111 @@
+# PlayPulse — YouTube Playlist Duration & Study Calculator
+
 [![Netlify Status](https://api.netlify.com/api/v1/badges/1776a7ab-114a-4984-a7a3-9abf32fcc964/deploy-status)](https://app.netlify.com/projects/playpulse-duration/deploys)
 
-# YouTube Playlist Duration Calculator
 
 We all know the struggle—you're cramming for an exam, and there's this massive playlist on YouTube that explains everything you need to know. But there's one problem... you have no idea how long it will take to watch the whole thing. If you're like me and tend to leave studying to the last minute, time becomes a big factor.
 That's why I built this app! You just paste the link to a YouTube playlist, and it spits out the total duration, so you can know exactly how long the playlist is before diving in. Sure, it might enable some of my procrastination tendencies, but hey, it's still super useful!
 
 This is a web application that calculates the total duration of all the videos in a YouTube playlist. The application is built with Python and Flask on the backend, and HTML and CSS on the frontend. It uses the YouTube Data API v3 to fetch video data from the playlist.
 
-## Features
-- Input a YouTube playlist URL.
-- The app fetches and calculates the total duration of all videos in the playlist.
-- Displays the combined duration in hours, minutes, and seconds.
+🌐 **Live Website**: [https://playpulse-duration.netlify.app](https://playpulse-duration.netlify.app)
 
-## Technologies Used
-### Backend
-- **Python**: Used for the main application logic.
-- **Flask**: A lightweight web framework to handle API requests and responses.
-- **YouTube Data API v3**: To fetch the playlist data including video durations.
+---
+
+## ✨ Features
+
+- **⚡ Instant Total Duration**: Paste any YouTube playlist link or ID to fetch total runtime in days, hours, minutes, and seconds.
+- **🚀 Multi-Speed Comparison Matrix**: See exact adjusted watch times and hours/minutes saved at **1.0x, 1.25x, 1.5x, 1.75x, and 2.0x** speeds.
+- **🎚️ Smooth Custom Speed Slider**: Adjust playback speed continuously from **0.50x to 3.00x** with real-time recalculations.
+- **📅 Daily Study Schedule Planner**: Choose your daily study commitment (**30 min, 1 hr, 2 hrs, 3 hrs/day**) to calculate the required days and exact projected completion date.
+- **🎯 Custom Range & Video Filters**: Calculate specific subsets (e.g. video #5 to #25) or toggle individual videos on and off in the breakdown drawer.
+- **📊 Deep Playlist Insights**: View average video length, identify the longest and shortest videos in the playlist, and track total indexed count.
+- **📋 One-Click Formatted Export**: Copy a clean, emoji-formatted markdown summary for Discord, Slack, Notion, or personal study notes.
+- **🌓 Dark & Light Luxe Themes**: Glassmorphic UI with animated glowing atmospheric orbs and `localStorage` persistence.
+- **📱 PWA & Mobile Optimized**: Responsive grid layout with touch-friendly actions and `site.webmanifest` support.
+- **🔍 SEO & Social Media Ready**: Complete OpenGraph, Twitter Cards, Schema.org JSON-LD, `robots.txt`, and `sitemap.xml`.
+
+---
+
+## 🛠️ Tech Stack
 
 ### Frontend
-- **HTML**: For structuring the web pages.
-- **CSS**: For styling the web pages and making the UI user-friendly.
+- **HTML5 & Vanilla CSS3**: Custom Dark Luxe design system with glassmorphism, responsive CSS grid, and micro-animations.
+- **Vanilla ES6+ JavaScript**: Client-side state management, range filtering, and dynamic speed calculations.
+- **Google Fonts**: Plus Jakarta Sans & JetBrains Mono.
 
-## Installation
+### Backend & Serverless
+- **Python / Flask**: Backend API handling YouTube Data API v3 pagination, batching, and ISO-8601 duration parsing.
+- **Netlify Serverless Functions**: Native, zero-dependency Node.js (`netlify/functions/get_playlist_duration.js`) and Python handlers for CDN deployment.
 
-1. Clone the repository:
-    ```bash
-    git clone https://github.com/LordNydorf/YTplaylistCalc.git
-    cd YTplaylistCalc
-    ```
+---
 
-2. Create a virtual environment and activate it:
-    ```bash
-    python3 -m venv venv
-    source venv/bin/activate
-    ```
+## 🚀 Getting Started Locally
 
-3. Install the required dependencies:
-    ```bash
-    pip install -r requirements.txt
-    ```
+### Prerequisites
+- Python 3.10+
+- A Google Cloud YouTube Data API v3 key ([Get a free key here](https://console.cloud.google.com/))
 
-4. Obtain an API key from [Google Cloud Console](https://console.cloud.google.com/) for YouTube Data API v3. Enable the API and copy the key.
+### 1. Clone the repository
+```bash
+git clone https://github.com/LordNydorf/YTplaylistCalc.git
+cd YTplaylistCalc
+```
 
-5. Set up your environment variables. Create a `.env` file in the root directory with your API key:
-    ```bash
-    YOUTUBE_API_KEY=your_youtube_api_key
-    ```
+### 2. Create and activate a virtual environment
+```bash
+# On Windows
+python -m venv venv
+.\venv\Scripts\Activate.ps1
 
-6. Run the Flask development server:
-    ```bash
-    flask run
-    ```
+# On macOS/Linux
+python3 -m venv venv
+source venv/bin/activate
+```
 
-7. Open your browser and visit `http://127.0.0.1:5000`.
+### 3. Install dependencies
+```bash
+pip install -r requirements.txt
+```
 
-## Usage
+### 4. Configure Environment Variables
+Create a `.env` file in the root directory:
+```env
+YOUTUBE_API_KEY=your_youtube_data_api_v3_key_here
+```
 
-1. Paste the URL of a YouTube playlist in the input field.
-2. Click on the "Get Total Duaration" button.
-3. The app will display the total duration of the playlist in a human-readable format (hours, minutes, seconds).
+### 5. Run the development server
+```bash
+python app.py
+```
+Open your browser and visit: **`http://127.0.0.1:5000`**
 
-## Example
+---
 
-- Input: A YouTube playlist URL like `https://www.youtube.com/playlist?list=PLabc123...`
-- Output: Total Duration: **5 hours 24 minutes 36 seconds**
+## ☁️ Deployment (Netlify)
 
+This project is pre-configured for one-click deployment on Netlify using the included `netlify.toml` and serverless functions:
 
-## Future Improvements
-- Display more detailed statistics such as average video length, total number of videos, etc.
-- Support for public and private playlists (with OAuth 2.0 authentication).
-- Mobile responsive design for a better user experience on different devices.
+1. Push your repository to GitHub.
+2. Link the repository in **Netlify**.
+3. Under **Site Settings → Environment Variables**, add:
+   - `YOUTUBE_API_KEY`: Your YouTube API key.
+4. Trigger deploy! Netlify will automatically serve the static CDN frontend from `public/` and route `/get_playlist_duration` to the serverless function.
+
+---
+
+## ⚖️ Legal & Compliance
+
+This tool uses YouTube API Services. By using PlayPulse, users agree to be bound by the [YouTube Terms of Service](https://www.youtube.com/t/terms) and [Google Privacy Policy](https://policies.google.com/privacy).
+
+PlayPulse is an independent utility and is not affiliated with, endorsed by, or sponsored by YouTube or Google LLC.
+
+---
+
+## ☕ Support
+
+If PlayPulse helped you plan your studies or saved you time, consider buying me a coffee:
+
+[![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-lordnydorf-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/lordnydorf)
+
+**Created by [Rohit Krishnan](https://lordnydorf.github.io/Portfolio/)**

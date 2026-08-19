@@ -1,0 +1,21 @@
+{
+  "name": "PlayPulse — YouTube Playlist Duration & Speed Calculator",
+  "short_name": "PlayPulse",
+  "description": "Calculate total duration, multi-speed watch times, and study schedules for any YouTube playlist.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#07090e",
+  "theme_color": "#ff0033",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
